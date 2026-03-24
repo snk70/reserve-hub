@@ -9,6 +9,9 @@
     <modules>
         <module>services</module>
         <module>services/auth-service</module>
+        <module>services/booking-service</module>
+        <module>services/notification-service</module>
+        <module>services/api-gateway</module>
     </modules>
 
     <parent>
