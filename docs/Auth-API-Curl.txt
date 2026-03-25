@@ -1,0 +1,13 @@
+//Register User CURL:  
+
+  curl --request POST \
+  --url http://localhost:8081/api/auth/register \
+  --header 'Content-Type: application/json' \
+  --data '{"email":"test@example.com","password":"123456","fullName":"Test User"}'
+  
+  
+  //Login User CURL:
+  curl --request POST \
+  --url http://localhost:8081/api/auth/login \
+  --header 'Content-Type: application/json' \
+  --data '{"email":"test@example.com","password":"123456"}'
