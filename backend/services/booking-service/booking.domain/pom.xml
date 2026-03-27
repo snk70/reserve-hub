@@ -14,5 +14,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>booking-domain-service</module>
+        <module>booking-domain-core</module>
     </modules>
 </project>

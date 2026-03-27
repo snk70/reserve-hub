@@ -12,7 +12,6 @@
         <module>services/booking-service</module>
         <module>services/notification-service</module>
         <module>services/api-gateway</module>
-        <module>services/booking-service/booking.domain/booking-domain-core</module>
     </modules>
 
     <parent>
