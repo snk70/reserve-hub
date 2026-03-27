@@ -1,0 +1,46 @@
+booking-service/
+├── src/main/java/com/reservehub/booking/
+│   │
+│   ├── domain/                         # Core Layer
+│   │   ├── model/                      # Entities & Value Objects
+│   │   │   ├── Booking.java
+│   │   │   ├── Service.java
+│   │   │   ├── TimeSlot.java
+│   │   │   ├── Money.java
+│   │   │   └── BookingStatus.java
+│   │   ├── repository/                 # Repository Relations
+│   │   │   ├── BookingRepository.java
+│   │   │   └── ServiceRepository.java
+│   │   └── service/                    # Domain Services
+│   │       └── BookingValidationService.java
+│   │
+│   ├── application/                    #Use Cases Layer
+│   │   ├── dto/                        # Data Transfer Objects
+│   │   │   ├── CreateBookingRequest.java
+│   │   │   ├── BookingResponse.java
+│   │   │   └── ServiceDto.java
+│   │   └── service/                    # Application Services
+│   │       └── BookingApplicationService.java
+│   │
+│   ├── infrastructure/                 # Infrastructure Layer
+│   │   ├── web-api/                        # Rest API
+│   │   │   └── controller/
+│   │   │       └── BookingController.java
+│   │   ├── persistence/                # Repository
+│   │   │   └── repository/
+│   │   │       ├── JpaBookingRepository.java
+│   │   │       └── JpaServiceRepository.java
+│   │   ├── messaging/                  #Messaging (Kafka)
+│   │   │   ├── BookingEvent.java
+│   │   │   └── BookingEventPublisher.java
+│   │   ├── cache/                      # Redis Configuration
+│   │   │   └── RedisConfig.java
+│   │   └── config/                     # Other Settings
+│   │       └── Resilience4jConfig.java
+│   │
+│   └── common/                         # Shared Layer
+│       └── exception/
+│           └── GlobalExceptionHandler.java
+│
+└── src/main/resources/
+    └── application.yml
