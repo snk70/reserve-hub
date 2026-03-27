@@ -5,15 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.spring.microservice.reservehub</groupId>
-        <artifactId>SpringReserveHub</artifactId>
+        <artifactId>booking-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>booking-service</artifactId>
+    <artifactId>booking.domain</artifactId>
+
     <packaging>pom</packaging>
     <modules>
-        <module>booking.domain</module>
+        <module>booking-domain-service</module>
     </modules>
-
 </project>
