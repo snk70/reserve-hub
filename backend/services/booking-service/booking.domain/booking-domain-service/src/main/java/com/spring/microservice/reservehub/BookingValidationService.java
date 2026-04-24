@@ -2,7 +2,6 @@ package com.spring.microservice.reservehub;
 
 
 import com.spring.microservice.reservehub.entity.Booking;
-import com.spring.microservice.reservehub.imodels.IBookingRepository;
 import com.spring.microservice.reservehub.valobj.BookingStatus;
 import com.spring.microservice.reservehub.valobj.TimeSlot;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class BookingValidationService {
 
-    private final IBookingRepository bookingRepository;
+//    private final IBookingRepository bookingRepository;
 
     public void validateBooking(com.spring.microservice.reservehub.entity.Service service, TimeSlot timeSlot, UUID userId) {
         // Validate time slot
@@ -33,15 +32,15 @@ public class BookingValidationService {
         }
 
         // Check for conflicting bookings
-        boolean hasConflict = bookingRepository.existsConflictingBooking(
-                service.getId(),
-                timeSlot.getStartTime(),
-                timeSlot.getEndTime()
-        );
+//        boolean hasConflict = bookingRepository.existsConflictingBooking(
+//                service.getId(),
+//                timeSlot.getStartTime(),
+//                timeSlot.getEndTime()
+//        );
 
-        if (hasConflict) {
-            throw new IllegalStateException("Time slot is already booked");
-        }
+//        if (hasConflict) {
+//            throw new IllegalStateException("Time slot is already booked");
+//        }
 
         // Check future booking only
         if (timeSlot.getStartTime().isBefore(java.time.LocalDateTime.now())) {

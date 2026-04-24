@@ -1,4 +1,4 @@
-package com.spring.microservice.reservehub.imodels;
+package com.spring.microservice.reservehub.port.output;
 
 import com.spring.microservice.reservehub.entity.Booking;
 
@@ -11,7 +11,6 @@ public interface IBookingRepository {
     Booking save(Booking booking);
     Optional<Booking> findById(UUID id);
     List<Booking> findByUserId(UUID userId);
-    List<Booking> findByServiceIdAndTimeSlotBetween(UUID serviceId, LocalDateTime start, LocalDateTime end);
     List<Booking> findConflictingBookings(UUID serviceId, LocalDateTime startTime, LocalDateTime endTime);
     boolean existsConflictingBooking(UUID serviceId, LocalDateTime startTime, LocalDateTime endTime);
     void delete(Booking booking);

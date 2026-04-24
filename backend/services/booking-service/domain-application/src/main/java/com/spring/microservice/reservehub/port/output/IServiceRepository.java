@@ -1,4 +1,4 @@
-package com.spring.microservice.reservehub.imodels;
+package com.spring.microservice.reservehub.port.output;
 
 import com.spring.microservice.reservehub.entity.Service;
 
@@ -11,5 +11,4 @@ public interface IServiceRepository {
     Optional<Service> findById(UUID id);
     List<Service> findByBusinessOwnerId(UUID businessOwnerId);
     List<Service> findAllActive();
-    boolean existsById(UUID id);
 }
