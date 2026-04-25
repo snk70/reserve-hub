@@ -1,11 +1,11 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
-    name: auth-service
+    name: booking-service-application
   datasource:
-    url: jdbc:postgresql://localhost:5432/auth_db
+    url: jdbc:postgresql://localhost:5433/booking_db
     username: admin
     password: admin123
     driver-class-name: org.postgresql.Driver
@@ -18,9 +18,9 @@ spring:
         format_sql: true
     show-sql: true
 
-jwt:
-  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
-  expiration: 86400000
+#jwt:
+#  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+#  expiration: 86400000
 
 logging:
   level:
