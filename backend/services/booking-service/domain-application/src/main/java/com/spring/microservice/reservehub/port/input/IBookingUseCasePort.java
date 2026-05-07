@@ -7,7 +7,7 @@ import com.spring.microservice.reservehub.dto.CreateBookingRequest;
 import java.util.List;
 import java.util.UUID;
 
-public interface IBookingUseCase {
+public interface IBookingUseCasePort {
     BookingResponse createBooking(CreateBookingRequest request, UUID userId);
     void cancelBooking(UUID bookingId, UUID userId);
     List<BookingResponse> getUserBookings(UUID userId);

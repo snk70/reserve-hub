@@ -2,7 +2,7 @@ package com.spring.microservice.reservehub.bookingserviceapplication.web;
 
 import com.spring.microservice.reservehub.dto.BookingResponse;
 import com.spring.microservice.reservehub.dto.CreateBookingRequest;
-import com.spring.microservice.reservehub.port.input.IBookingUseCase;
+import com.spring.microservice.reservehub.port.input.IBookingUseCasePort;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class BookingController {
 
-    private final IBookingUseCase bookingUseCase;  // ← وابستگی به Interface
+    private final IBookingUseCasePort bookingUseCase;  // ← وابستگی به Interface
 
     @PostMapping
     public ResponseEntity<BookingResponse> createBooking(
