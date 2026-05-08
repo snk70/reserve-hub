@@ -4,6 +4,7 @@ import com.spring.microservice.reservehub.BookingValidationService;
 import com.spring.microservice.reservehub.dto.BookingResponse;
 import com.spring.microservice.reservehub.dto.CreateBookingRequest;
 import com.spring.microservice.reservehub.entity.Booking;
+import com.spring.microservice.reservehub.entity.BusinessService;
 import com.spring.microservice.reservehub.port.input.IBookingUseCasePort;
 import com.spring.microservice.reservehub.port.output.IBookingRepository;
 import com.spring.microservice.reservehub.port.output.IEventPublisher;
@@ -43,12 +44,12 @@ public class BookingUseCase implements IBookingUseCasePort {
         TimeSlot timeSlot = new TimeSlot(request.getStartTime(), request.getEndTime());
 
         // 3. Validate booking
-        validationService.validateBooking((com.spring.microservice.reservehub.entity.Service) service, timeSlot, userId);
+        validationService.validateBooking((BusinessService) service, timeSlot, userId);
 
         // 4. Create booking entity
         Booking booking = new Booking();
         booking.setUserId(userId);
-        booking.setService((com.spring.microservice.reservehub.entity.Service) service);
+        booking.setService((BusinessService) service);
         booking.setTimeSlot(timeSlot);
 
         // 5. Save

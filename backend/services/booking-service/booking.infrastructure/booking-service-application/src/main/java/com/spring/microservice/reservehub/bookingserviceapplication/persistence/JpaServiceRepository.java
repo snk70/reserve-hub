@@ -1,6 +1,6 @@
 package com.spring.microservice.reservehub.bookingserviceapplication.persistence;
 
-import com.spring.microservice.reservehub.entity.Service;
+import com.spring.microservice.reservehub.entity.BusinessService;
 import com.spring.microservice.reservehub.port.output.IServiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
@@ -19,42 +19,42 @@ public class JpaServiceRepository implements IServiceRepository {
     private final SpringDataServiceRepository repository;
 
     @Override
-    public Service save(Service service) {
+    public BusinessService save(BusinessService service) {
         return repository.save(service);
     }
 
     @Override
-    public Optional<Service> findById(UUID id) {
+    public Optional<BusinessService> findById(UUID id) {
         return repository.findById(id);
     }
 
     @Override
-    public List<Service> findByBusinessOwnerId(UUID businessOwnerId) {
+    public List<BusinessService> findByBusinessOwnerId(UUID businessOwnerId) {
         return repository.findByBusinessOwnerId(businessOwnerId);
     }
 
     @Override
-    public List<Service> findAllActive() {
+    public List<BusinessService> findAllActive() {
         return repository.findAll();
     }
 }
 
-interface SpringDataServiceRepository extends JpaRepository<Service, UUID> {
+interface SpringDataServiceRepository extends JpaRepository<BusinessService, UUID> {
 
 
     //    List<Service> findByBusinessOwnerId(UUID businessOwnerId);
     //    @Lock(LockModeType.OPTIMISTIC)
-    @Query("SELECT s FROM Service s WHERE s.businessOwnerId = :businessOwnerId " +
+    @Query("SELECT s FROM BusinessService s WHERE s.businessOwnerId = :businessOwnerId " +
             "AND s.isActive=true ")
-    List<Service> findByBusinessOwnerId(
+    List<BusinessService> findByBusinessOwnerId(
             @Param("businessOwnerId") UUID businessOwnerId);
 
     @NotNull
     @Query()
-    Optional<Service> findById(UUID id);
+    Optional<BusinessService> findById(UUID id);
 
-    @Query("SELECT s FROM Service s WHERE s.isActive=true")
-    List<Service> findAllActive();
+    @Query("SELECT s FROM BusinessService s WHERE s.isActive=true")
+    List<BusinessService> findAllActive();
 
 //    @Query("SELECT COUNT(b) > 0 FROM Booking b WHERE b.service.id = :serviceId " +
 //            "AND b.timeSlot.startTime < :endTime " +

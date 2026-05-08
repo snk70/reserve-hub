@@ -2,6 +2,7 @@ package com.spring.microservice.reservehub;
 
 
 import com.spring.microservice.reservehub.entity.Booking;
+import com.spring.microservice.reservehub.entity.BusinessService;
 import com.spring.microservice.reservehub.valobj.BookingStatus;
 import com.spring.microservice.reservehub.valobj.TimeSlot;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class BookingValidationService {
 
 //    private final IBookingRepository bookingRepository;
 
-    public void validateBooking(com.spring.microservice.reservehub.entity.Service service, TimeSlot timeSlot, UUID userId) {
+    public void validateBooking(BusinessService service, TimeSlot timeSlot, UUID userId) {
         // Validate time slot
         if (!timeSlot.isValid()) {
             throw new IllegalArgumentException("Invalid time slot: start time must be before end time");
